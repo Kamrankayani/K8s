@@ -31,8 +31,8 @@ kops create cluster --name=kamranzahoor.co.uk \
 
 kops create cluster --name=kamranzahoor.co.uk \
 --state=s3://kamranzahoor.co.uk --zones=us-east-1a,us-east-1b,us-east-1c \
---node-count=3 --master-count=3 --node-size=t3.medium --master-size=t3.medium \
- --master-zones=us-east-1a,us-east-1b,us-east-1c --master-volume-size 10 --node-volume-size 10 \
+--node-count=3 --control-plane-count=3 --node-size=t3.medium --control-plane-size=t3.medium \
+ --control-plane-zones=us-east-1a,us-east-1b,us-east-1c --control-plane-volume-size 10 --node-volume-size 10 \
  --ssh-public-key ~/.ssh/id_ed25519.pub \
  --dns-zone=kamranzahoor.co.uk --dry-run --output yaml
 
