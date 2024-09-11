@@ -5,13 +5,14 @@ CREATE A EC2 INSTANCE AND GENERATE SSH ROLE
 download Kops and Kubectl to usr/local/bin and change permissions.
 
 download Kops and Kubectl to usr/local/bin and change permissions.
-   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"   //kubectl
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"   
+   //kubectl
   // curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 https://github.com/kubernetes/kops/releases/download/v1.29.2/kops-linux-amd64
 
 # Download Kubectl and give permissions.
 # edit .bashrc and add all the env variables 
-
+#339712818409.realhandsonlabs.net
 export NAME=kamranzahoor.co.uk
 export KOPS_STATE_STORE=s3://kamranzahoor.co.uk
 export AWS_REGION=us-east-1
@@ -19,11 +20,13 @@ export CLUSTER_NAME=kamranzahoor.co.uk
 export EDITOR='/usr/bin/nano'
 #export K8S_VERSION=1.6.4
 
-export NAME=647495571141.realhandsonlabs.net
-export KOPS_STATE_STORE=s3://647495571141.realhandsonlabs.net
+export NAME=339712818409.realhandsonlabs.net
+export KOPS_STATE_STORE=s3://339712818409.realhandsonlabs.net
 export AWS_REGION=us-east-1
-export CLUSTER_NAME=647495571141.realhandsonlabs.net
+export CLUSTER_NAME=339712818409.realhandsonlabs.net
 export EDITOR='/usr/bin/nano'
+alias ku=kubectl
+source <(kubectl completion bash)
 
 # After copying the above files to .bashrc run “ source .bashrc ”.
 
@@ -48,12 +51,12 @@ kops create cluster --name=kamranzahoor.co.uk \
  --dns-zone=kamranzahoor.co.uk --dry-run --output yaml
 
 
-kops create cluster --name=647495571141.realhandsonlabs.net \
---state=s3://647495571141.realhandsonlabs.net --zones=us-east-1a,us-east-1b,us-east-1c \
+kops create cluster --name=339712818409.realhandsonlabs.net \
+--state=s3://339712818409.realhandsonlabs.net --zones=us-east-1a,us-east-1b,us-east-1c \
 --node-count=3 --control-plane-count=3 --node-size=t3.medium --control-plane-size=t3.medium \
  --control-plane-zones=us-east-1a,us-east-1b,us-east-1c --control-plane-volume-size 10 --node-volume-size 10 \
  --ssh-public-key ~/.ssh/id_ed25519.pub \
- --dns-zone=647495571141.realhandsonlabs.net --dry-run --output yaml
+ --dns-zone=339712818409.realhandsonlabs.net --dry-run --output yaml
 
 # One done run below commands to create the cluster 
 
